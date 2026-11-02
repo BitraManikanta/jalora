@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jalora update snippets</title>
+
+<!-- ============ STEP A: COPY THIS CSS INTO YOUR EXISTING CSS FILE / <style> ============ -->
+<style>
+  body { font-family: system-ui, sans-serif; background: #0b1b2b; color: #e6f1fa; margin: 0; padding: 2rem 1rem; }
+
+  .credits { text-align: center; padding: 2rem 1rem 1.5rem; }
+  .team { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 1.4rem; margin-bottom: 1rem; }
+  .member { display: flex; flex-direction: column; align-items: center; }
+  .roll { font-size: .62rem; letter-spacing: .18em; opacity: .6; }
+  .name { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+  .designed { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; opacity: .85; margin: 0; }
+  .designed strong {
+    font-weight: 600;
+    background: linear-gradient(90deg, #38bdf8, #22d3ee, #34d399);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .sub { font-size: .65rem; opacity: .5; margin-top: .4rem; }
+</style>
+</head>
+<body>
+
+<!-- ============ STEP B: REPLACE YOUR "Project report" LINKS WITH THIS ============ -->
+<!-- Put your PDF in the same folder as index.html (or in /public) and name it jalora-csp-report.pdf -->
+<section id="csp">
+  <h2>My CSP project report</h2>
+  <p>A Comprehensive Study of Water Pollution. Report status: available now.</p>
+  <a href="jalora-csp-report.pdf" target="_blank" rel="noopener">View project PDF</a>
+  <a href="jalora-csp-report.pdf" download>Download PDF</a>
+</section>
+
+<!-- ============ STEP C: REPLACE YOUR OLD "Designed and developed by" FOOTER WITH THIS ============ -->
+<footer class="credits">
+  <div class="team">
+    <div class="member"><span class="roll">24JNA30017-B</span><span class="name">Manikanta</span></div>
+    <div class="member"><span class="roll">24JNA30031</span><span class="name">Vardhan</span></div>
+    <div class="member"><span class="roll">24JNA30054</span><span class="name">Rahul</span></div>
+    <div class="member"><span class="roll">24JNA30056</span><span class="name">Goutham Krishna</span></div>
+  </div>
+  <p class="designed">Designed &amp; developed by <strong>Bitra Manikanta</strong> and team</p>
+  <p class="sub">Jalora Nellore | Water pollution awareness | CSP project</p>
+</footer>
+
+</body>
+</html>
