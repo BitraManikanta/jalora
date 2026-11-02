@@ -46,6 +46,14 @@ input[type=checkbox]{width:22px;height:22px;margin:0;accent-color:var(--aq)}inpu
 .c3{display:grid;grid-template-columns:1.5fr .8fr .8fr;gap:8px;align-items:center}.c3 input{margin:0}.c3 b{font-size:.8rem;color:var(--mut)}
 .out{white-space:pre-wrap;background:rgba(5,20,32,.7);border:1px solid var(--ln);border-radius:10px;padding:14px;font:inherit;font-size:.95rem;margin:12px 0}
 .big{font:300 clamp(1.8rem,5vw,2.8rem) Fraunces,serif}
+
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;max-width:760px;margin:0 auto 2.2rem}
+.tm{background:var(--gl);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--ln);border-radius:12px;padding:14px 10px}
+.tm small{display:block;font:600 .66rem/1.3 Manrope,sans-serif;letter-spacing:.16em;color:var(--aq);margin-bottom:6px}
+.tm span{font:600 .9rem/1.3 Fraunces,serif;letter-spacing:.05em;text-transform:uppercase}
+.cr{font:600 .7rem/1.8 Manrope,sans-serif;letter-spacing:.34em;text-transform:uppercase;color:var(--mut);margin:0 auto;max-width:none;text-align:center}
+.cr b{display:block;font:italic 300 clamp(1.1rem,3.4vw,1.55rem)/1.3 Fraunces,serif;letter-spacing:.16em;margin-top:.2em;background:linear-gradient(90deg,#3fd0c9,#eaf6f4,#3fd0c9);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 7s linear infinite}
+.cr i{display:block;width:44px;height:1px;background:var(--aq);margin:14px auto;opacity:.7}
 </style></head><body>
 <canvas id="w" aria-hidden="true"></canvas>
 <nav><span>Jalora</span><details class="mn"><summary>Menu</summary><div><a href="#causes">Causes</a><a href="#wild">Who pays</a><a href="#watch">Water watch</a><a href="#health">Health</a><a href="#safe">Safe water</a><a href="#saver">Water calculator</a><a href="#gloss">Glossary</a><a href="#quiz">Quiz</a><a href="#act">Take action</a><a href="#pledge">Pledge</a><a href="#csp">Project report</a></div></details></nav>
@@ -73,12 +81,17 @@ input[type=checkbox]{width:22px;height:22px;margin:0;accent-color:var(--aq)}inpu
 <div id="pcb" hidden><pre class="out" id="pc"></pre><div class="pick"><button id="pcc">Copy</button><a class="btn" id="pcw" target="_blank" rel="noopener">WhatsApp</a><a class="btn" id="pce">Email</a></div></div></div></div></section>
 <section id="pledge"><h2>Make your pledge</h2><div class="pn rv"><div id="pl"></div><label for="pnm">Your name</label><input id="pnm" maxlength="40"><button class="pri" id="pg" type="button">Create my pledge card</button><p id="ps" class="mut" aria-live="polite"></p>
 <img id="pi" alt="Your pledge card" hidden style="max-width:300px;width:100%;border-radius:12px;margin:14px 0"><div class="pick"><a class="btn" id="pdl" download="jalora-pledge.png" hidden>Download card</a><a class="btn" id="pw" target="_blank" rel="noopener" hidden>Share on WhatsApp</a></div></div></section>
-<section id="csp"><h2>My CSP project report</h2><p class="mut">A Comprehensive Study of Water Pollution. Report status: coming soon.</p><div class="pick"><button class="pri" id="vp">View project PDF</button><button id="dp" disabled>Download PDF</button></div></section>
+<section id="csp"><h2>My CSP project report</h2><p class="mut">A Comprehensive Study of Water Pollution. Report status: available. View it here or download your copy.</p><div class="pick"><button class="pri" id="vp">View project PDF</button><button id="dp" disabled>Download PDF</button></div></section>
 </main>
-<footer><p class="mut">Designed and developed by</p><div class="nm">BITRA MANIKANTA</div><p class="mut" style="margin:1em auto">Jalora Nellore | Water pollution awareness | CSP project</p></footer>
-<dialog id="dg" aria-label="Project PDF"><div style="display:flex;justify-content:flex-end"><button id="cl">Close</button></div><div id="db" style="height:calc(100% - 56px);display:grid;place-items:center;text-align:center"></div></dialog>
+<footer><div class="team" aria-label="Project team">
+<div class="tm"><small>24JNA30017-B</small><span>Manikanta</span></div>
+<div class="tm"><small>24JNA30031</small><span>Vardhan</span></div>
+<div class="tm"><small>24JNA30054</small><span>Rahul</span></div>
+<div class="tm"><small>24JNA30056</small><span>Goutham Krishna</span></div>
+</div><p class="cr">Designed and developed by<b>Bitra Manikanta and team</b><i></i></p><p class="mut" style="margin:.4em auto;font-size:.85rem">Jalora Nellore | Water pollution awareness | CSP project</p></footer>
+<dialog id="dg" aria-label="Project PDF"><div style="display:flex;justify-content:flex-end;gap:8px"><a class="btn" href="jalora-csp-report.pdf" target="_blank" rel="noopener">Open in new tab</a><button id="cl">Close</button></div><div id="db" style="height:calc(100% - 56px);display:grid;place-items:center;text-align:center"></div></dialog>
 <script>
-const PDF_URL="";/* set to "report.pdf" once the PDF is hosted beside this page */
+const PDF_URL="jalora-csp-report.pdf";
 const $=s=>document.querySelector(s),RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
 /* content */
 [["Plastic and microplastics","Litter, packaging, synthetic fibres.","Reduce, collect, recycle."],["Industrial wastewater","Untreated effluent and chemicals.","Treatment and monitoring."],["Sewage","Open drains, leaking septic tanks.","Safe sanitation and treatment."],["Fertiliser and pesticide runoff","Field drainage into canals.","Right-sized use, buffer strips."],["Oil films","Workshop and vehicle waste.","Proper oil disposal."],["Dumping and ritual waste","Rubbish, idols and offerings in drains.","Collection points, natural materials."]].forEach(c=>$("#cg").insertAdjacentHTML("beforeend",`<div class="pn rv"><h3>${c[0]}</h3><p>${c[1]}</p><p class="mut">Fix: ${c[2]}</p></div>`));
@@ -130,10 +143,12 @@ PL.forEach((p,i)=>AD("#pl",`<label style="display:flex;gap:10px;min-height:44px;
 $("#pg").onclick=()=>{const n=$("#pnm").value.trim()||"A Jalora supporter",l=[...document.querySelectorAll("#pl input:checked")].map(e=>PL[e.value]);if(!l.length){$("#ps").textContent="Pick at least one pledge.";return}$("#ps").textContent="";
 const c=document.createElement("canvas");c.width=1080;c.height=1350;const g=c.getContext("2d"),gr=g.createLinearGradient(0,0,0,1350);gr.addColorStop(0,"#3fd0c9");gr.addColorStop(1,"#06324f");g.fillStyle=gr;g.fillRect(0,0,1080,1350);g.fillStyle="#06141f";g.font="300 76px Georgia,serif";g.fillText("I pledge to",80,190);g.fillText("protect water.",80,280);g.fillStyle="#fff";g.font="600 38px Arial,sans-serif";l.forEach((t,i)=>g.fillText("• "+t,80,430+i*72));g.font="300 64px Georgia,serif";g.fillText(n,80,1170);g.font="600 28px Arial,sans-serif";g.fillText("Jalora Nellore | Protect Water. Preserve Life.",80,1250);
 const u=c.toDataURL("image/png");$("#pi").src=u;$("#pi").hidden=false;$("#pdl").href=u;$("#pdl").hidden=false;$("#pw").href="https://wa.me/?text="+encodeURIComponent("I pledge to protect water: "+l.join("; ")+". Join me. Jalora Nellore");$("#pw").hidden=false};
-document.querySelectorAll(".mn a").forEach(a=>a.onclick=()=>$(".mn").open=false);
+document.querySelectorAll(".mn a").forEach(a=>a.onclick=e=>{e.preventDefault();const t=document.querySelector(a.getAttribute("href"));$(".mn").open=false;if(t){t.scrollIntoView({behavior:RM?"auto":"smooth"});history.replaceState(null,"",a.getAttribute("href"))}});
+document.addEventListener("click",e=>{const m=$(".mn");if(m.open&&!m.contains(e.target))m.open=false});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")$(".mn").open=false});
 /* pdf */
 const dg=$("#dg"),db=$("#db");$("#vp").onclick=()=>{dg.showModal();if(!PDF_URL){db.innerHTML="<div><h3>Our report is being prepared.</h3><p>It will be available here soon.</p></div>";return}db.innerHTML="";const o=document.createElement("object");o.data=PDF_URL;o.type="application/pdf";o.style.cssText="width:100%;height:100%";o.innerHTML=`<p><a href="${PDF_URL}">Open the PDF directly</a></p>`;db.append(o)};$("#cl").onclick=()=>dg.close();
-if(PDF_URL){const d=$("#dp");d.disabled=false;d.onclick=()=>{const a=document.createElement("a");a.href=PDF_URL;a.download="";a.click()}}
+if(PDF_URL){const d=$("#dp");d.disabled=false;d.onclick=()=>{const a=document.createElement("a");a.href=PDF_URL;a.download="Jalora-CSP-Report.pdf";a.click()}}
 /* living water: clarity follows scroll */
 const cv=$("#w"),x=cv.getContext("2d"),R=Math.random;let W,H,c=0,cs=0,rip=[],D=[],Bu=[],F=[];
 const mix=(a,b,t)=>a+(b-a)*t,col=(a,b,t)=>`rgb(${a.map((v,i)=>mix(v,b[i],t)|0)})`;
