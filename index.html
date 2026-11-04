@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jalora – Protect Water. Preserve Life.</title>
+<meta name="description" content="Water Pollution Community Service Project by Bitra Manikanta, SVCE Nellore. Report, weekly journey, field visits and games.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#04263a;--mid:#0a5a73;--teal:#19b3b0;--foam:#bff4ee;--sand:#f3d9a4;--coral:#ff8a5c;--ink:#e9fbf9;--card:rgba(255,255,255,.08);--line:rgba(191,244,238,.22)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font:400 17px/1.65 Manrope,system-ui,sans-serif;color:var(--ink);background:linear-gradient(#0b7a8a 0,#0a5a73 700px,#06364d 1800px,#04263a 100%) fixed;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sand);outline-offset:3px}
+nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:12px 5vw;padding-top:calc(12px + env(safe-area-inset-top,0px));background:rgba(4,38,58,.72);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav b{font:600 24px Fraunces,serif}
+nav div{display:flex;gap:6px;flex-wrap:wrap}
+nav a{text-decoration:none;padding:6px 13px;border-radius:99px;font-size:15px;transition:.2s}
+nav a:hover{background:var(--card)}
+#hero{position:relative;min-height:100svh;display:grid;align-content:center;padding:110px 5vw 60px;overflow:hidden}
+#sea{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.rays{position:absolute;inset:0;background:repeating-linear-gradient(105deg,transparent 0 90px,rgba(255,255,255,.07) 90px 150px);animation:sway 14s ease-in-out infinite alternate;mask:linear-gradient(#000,transparent 80%)}
+@keyframes sway{to{transform:translateX(60px)}}
+#hero h1{position:relative;font-size:clamp(46px,9vw,112px);letter-spacing:-.02em;max-width:11ch}
+#hero p{position:relative;max-width:46ch;margin:18px 0 28px;color:var(--foam);font-size:19px}
+.btns{position:relative;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;border:0;cursor:pointer;font:700 16px Manrope,sans-serif;padding:13px 24px;border-radius:99px;text-decoration:none;background:var(--foam);color:var(--deep);transition:transform .2s}
+.btn:hover{transform:translateY(-3px)}
+.btn.o{background:transparent;color:var(--ink);border:1.5px solid var(--foam)}
+.by{position:relative;margin-top:44px;color:var(--foam);font-size:15px}
+.by strong{display:block;font:400 clamp(26px,4vw,40px) Fraunces,serif;color:#7ef0e4}
+section{padding:90px 5vw;max-width:1180px;margin:auto}
+section>h2{font-size:clamp(32px,5vw,52px);margin-bottom:10px}
+.lead{color:var(--foam);max-width:60ch;margin-bottom:36px}
+.stats{display:flex;flex-wrap:wrap;gap:14px 50px;padding:26px 5vw;max-width:1180px;margin:auto;border-block:1px solid var(--line)}
+.stats div{font-size:15px;color:var(--foam)}
+.stats b{display:block;font:400 44px Fraunces,serif;color:#fff;line-height:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.wk{all:unset;box-sizing:border-box;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px;transition:transform .25s,background .25s;position:relative;overflow:hidden}
+.wk:hover,.wk:focus-visible{transform:translateY(-6px);background:rgba(255,255,255,.14)}
+.wk small{color:var(--sand);font-weight:700;letter-spacing:.04em}
+.wk h3{font-size:23px}
+.wk p{font-size:15px;color:var(--foam)}
+.wk em{font-style:normal;font-weight:700;margin-top:auto;color:#7ef0e4}
+.wk i{position:absolute;right:-30px;bottom:-30px;width:110px;height:110px;border-radius:50%;background:radial-gradient(var(--teal),transparent 70%);opacity:.35;transition:.4s}
+.wk:hover i{transform:scale(1.8)}
+.trip{position:relative;display:grid;gap:22px;padding-left:28px;border-left:2px dashed var(--line)}
+.stop{position:relative;display:grid;grid-template-columns:minmax(0,170px) 1fr;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}
+.stop::before{content:"";position:absolute;left:-38px;top:26px;width:16px;height:16px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 5px rgba(255,138,92,.25)}
+.stop img{width:100%;height:150px;object-fit:cover;border-radius:12px;cursor:zoom-in}
+.stop h3{font-size:21px}.stop p{font-size:15px;color:var(--foam)}
+.stop time{color:var(--sand);font-weight:700;font-size:14px}
+.stop a{font-size:14px;color:#7ef0e4}
+.game{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
+.panel h3{font-size:26px;margin-bottom:6px}
+.tank{position:relative;height:70px;border-radius:12px;border:1px solid var(--line);overflow:hidden;margin:12px 0;background:rgba(0,0,0,.25)}
+.tank div{position:absolute;inset:auto 0 0;height:8%;background:linear-gradient(var(--teal),#0c7f9a);transition:height .6s,background .6s}
+.tank span{position:absolute;inset:0;display:grid;place-items:center;font-weight:700;text-shadow:0 1px 4px #000}
+.item{font-size:76px;text-align:center;line-height:1.2;margin:6px 0;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(4deg)}}
+.name{text-align:center;font-weight:700;margin-bottom:12px;min-height:27px}
+.bins{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bins button{font:700 15px Manrope,sans-serif;padding:14px 6px;border-radius:14px;border:0;cursor:pointer;color:#04263a;transition:transform .15s}
+.bins button:active{transform:scale(.94)}
+.fb{min-height:48px;margin-top:12px;font-size:15px;color:var(--foam)}
+.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.opts{display:grid;gap:9px;margin-top:12px}
+.opts button{font:500 16px Manrope,sans-serif;text-align:left;padding:12px 15px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink);cursor:pointer;transition:.2s}
+.opts button:hover:not(:disabled){background:rgba(255,255,255,.16)}
+.opts .ok{background:#1f9d6b;border-color:#1f9d6b}.opts .no{background:#b5483a;border-color:#b5483a}
+.pdfbox{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+.pdfbox iframe{display:block;width:100%;height:78vh;min-height:480px;border:0}
+.tips{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.tips div{padding:18px;border-radius:16px;background:var(--card);border:1px solid var(--line);font-size:15px}
+.tips b{display:block;font:400 20px Fraunces,serif;margin-bottom:4px}
+footer{text-align:center;padding:50px 5vw calc(50px + env(safe-area-inset-bottom,0px));color:var(--foam);font-size:15px;border-top:1px solid var(--line)}
+dialog{border:0;padding:0;background:transparent;max-width:min(860px,94vw);width:100%;color:var(--ink);margin:auto}
+dialog::backdrop{background:rgba(2,18,30,.78);backdrop-filter:blur(4px)}
+.mod{background:linear-gradient(#0a5a73,#05324a);border:1px solid var(--line);border-radius:24px;padding:28px;max-height:90vh;overflow:auto;animation:pop .35s cubic-bezier(.2,1.2,.4,1)}
+@keyframes pop{from{transform:scale(.88) translateY(20px);opacity:0}}
+.mod h2{font-size:clamp(26px,4vw,38px);margin:4px 0 4px}
+.mod h4{margin:20px 0 6px;color:var(--sand);font-size:15px}
+.mod li{margin:0 0 6px 20px;font-size:16px}
+.mod table{width:100%;border-collapse:collapse;font-size:14px}
+.mod td{padding:8px 6px;border-top:1px solid var(--line);vertical-align:top}.mod td:first-child{white-space:nowrap;color:var(--sand);font-weight:700}
+.ph{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.ph figure{flex:1 1 220px}.ph img{width:100%;max-height:340px;object-fit:cover;border-radius:12px;cursor:zoom-in}
+.ph figcaption{font-size:13px;color:var(--foam);margin-top:4px}
+.x{position:sticky;top:0;float:right;width:42px;height:42px;border-radius:50%;border:0;background:var(--foam);color:var(--deep);font-size:22px;cursor:pointer}
+.nav2{display:flex;justify-content:space-between;margin-top:22px}
+#lb{position:fixed;inset:0;z-index:50;display:none;place-items:center;background:rgba(0,0,0,.88);cursor:zoom-out}
+#lb.on{display:grid}#lb img{max-width:94vw;max-height:92vh;border-radius:10px}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(max-width:800px){.game{grid-template-columns:1fr}.stop{grid-template-columns:1fr}nav div a:nth-child(n+4){display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+#pb{position:fixed;top:0;left:0;height:3px;width:0;background:var(--sand);z-index:30}
+#top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:46px;height:46px;border-radius:50%;border:0;background:var(--foam);color:var(--deep);font-size:20px;cursor:pointer;z-index:19;opacity:0;pointer-events:none;transition:.3s}
+#top.on{opacity:1;pointer-events:auto}
+.lang{border:1.5px solid var(--foam);background:transparent;color:var(--ink);border-radius:99px;padding:5px 13px;font:700 14px Manrope,sans-serif;cursor:pointer}
+.arena{position:relative;height:230px;border-radius:14px;overflow:hidden;margin:12px 0;background:linear-gradient(#1aa6b4,#0a4a66);border:1px solid var(--line);user-select:none}
+.arena span{position:absolute;font-size:34px;cursor:pointer;line-height:1}
+.hud{display:flex;justify-content:space-between;font-weight:700}
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}
+.mem button{aspect-ratio:1;border:0;border-radius:12px;font-size:34px;cursor:pointer;background:rgba(255,255,255,.14);color:transparent;transition:transform .35s,background .3s}
+.mem button.f{background:var(--foam);color:inherit;transform:rotateY(360deg)}
+.mem button.m{background:#1f9d6b;color:inherit}
+.pl{display:grid;gap:10px;max-width:640px}
+.pl label{display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line);cursor:pointer}
+.pl input{width:22px;height:22px;accent-color:var(--teal)}
+.bar{height:12px;border-radius:9px;background:rgba(0,0,0,.3);overflow:hidden;margin:20px 0 8px;max-width:640px}.bar div{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--sand));transition:width .5s}
+.game+.game{margin-top:22px}
+</style>
+</head>
+<body>
+<div id="pb"></div><button id="top" aria-label="Back to top">↑</button>
+<nav><b>Jalora</b><div><a href="#report">Report</a><a href="#weeks">Weeks</a><a href="#places">Where we went</a><a href="#games">Games</a><a href="#act">Take action</a><a href="#pledge">Pledge</a><button class="lang" id="lg" aria-label="Switch language">తెలుగు</button></div></nav>
+
+<header id="hero">
+<canvas id="sea" aria-hidden="true"></canvas><div class="rays"></div>
+<h1>Protect water. Preserve life.</h1>
+<p>A six-week community service project on water pollution in Narukuru, Nellore: what we saw, where we went and what every household can do.</p>
+<div class="btns"><a class="btn" href="#report">View project PDF</a><a class="btn o" href="report.pdf" download="Jalora-CSP-Water-Pollution-Report.pdf">Download PDF</a><a class="btn o" href="#weeks">Open the 6 weeks</a></div>
+<div class="by">Designed and developed by<strong>Bitra Manikanta</strong>SVCE Nellore · AI &amp; Data Science · 24JNA30017</div>
+</header>
+
+<div class="stats rv"><div><b data-n="6">0</b>weeks of activity</div><div><b data-n="5">0</b>places visited</div><div><b data-n="12">0</b>field photographs</div><div><b data-n="4">0</b>team members</div></div>
+
+<section id="report" class="rv"><h2>The project report</h2><p class="lead">Read the full Community Service Project report here, or download it to share.</p>
+<div class="btns" style="margin-bottom:16px"><a class="btn" href="report.pdf" target="_blank" rel="noopener">Open in new tab</a><a class="btn o" href="report.pdf" download="Jalora-CSP-Water-Pollution-Report.pdf">Download PDF</a></div>
+<div class="pdfbox"><iframe src="report.pdf#view=FitH" title="CSP water pollution report"></iframe></div></section>
+
+<section id="weeks" class="rv"><h2>Our six weeks</h2><p class="lead">Select a week to see what we did, what we learned and the photographs from the field.</p><div class="grid" id="wgrid"></div></section>
+
+<section id="places" class="rv"><h2>Where we went</h2><p class="lead">Every place we visited, with the date and time from the GPS stamp on the photograph.</p><div class="trip" id="trip"></div></section>
+
+<section id="games" class="rv"><h2>Play and learn</h2><p class="lead">Two quick games based on the report. Every correct answer cleans the water.</p>
+<div class="game">
+<div class="panel"><h3>Sort the waste</h3><div class="tank"><div id="lvl"></div><span id="lt">Water health 0%</span></div>
+<div class="item" id="it"></div><div class="name" id="nm"></div>
+<div class="bins"><button style="background:#8fd694" data-b="wet">Wet</button><button style="background:#9fd3ff" data-b="dry">Dry / recycle</button><button style="background:#ffb08f" data-b="haz">Hazardous</button></div>
+<div class="fb" id="fb"></div></div>
+<div class="panel"><h3>Water quiz</h3><div id="qz"></div></div>
+</div>
+<div class="game">
+<div class="panel"><h3>River clean-up</h3><p style="font-size:15px;color:var(--foam)">Tap the rubbish before it sinks. Don’t tap the fish. You have 30 seconds.</p><div class="hud"><span id="cs">Score 0</span><span id="ct">30s</span></div><div class="arena" id="ar"></div><button class="btn" id="cb">Start clean-up</button></div>
+<div class="panel"><h3>Memory match</h3><p style="font-size:15px;color:var(--foam)">Find all six pairs in the fewest moves.</p><div class="hud"><span id="mv">Moves 0</span><span id="mb"></span></div><div class="mem" id="mm"></div><button class="btn o" style="margin-top:14px" id="mr">Shuffle</button></div>
+</div></section>
+
+<section id="act" class="rv"><h2>What you can do today</h2><p class="lead">Practical steps from our recommendations. Nobody needs special equipment.</p>
+<div class="tips"><div><b>At home</b>Separate wet, dry and recyclable waste. Keep oils and chemicals out of drains.</div><div><b>In shops and schools</b>Use covered bins, cut extra packaging and hand waste only to authorised collectors.</div><div><b>For the Panchayat</b>Collect waste regularly, keep drains clear and arrange water testing where needed.</div><div><b>Report it</b>Share the exact location and a photo with the local office. Describe only what you can see.</div></div>
+<p class="lead" style="margin-top:26px">Our photographs show visible waste only. Whether water is safe needs laboratory testing.</p></section>
+
+<section id="pledge" class="rv"><h2>Make your pledge</h2><p class="lead">Tick what you will do. Your choices stay on this device.</p>
+<div class="pl" id="pl"></div><div class="bar"><div id="pbar"></div></div><p id="pm" style="color:var(--foam)"></p>
+<button class="btn" id="sh" style="margin-top:12px">Share Jalora</button></section>
+<footer>Jalora · Water Pollution Community Service Project<br>Sree Venkateswara College of Engineering, Nellore · Guide: Mr. T. Sunil Kumar · 2026–27</footer>
+
+<dialog id="dlg"><div class="mod" id="mod"></div></dialog>
+<div id="lb"><img alt=""></div>
+
+<script>
+const I=n=>'images/p'+n+'.jpg';
+const W=[
+{t:'Orientation and understanding pollution',d:'14–20 Sep 2026',s:'We learned what water pollution is and narrowed the topic to visible pollution in local drains and channels: floating litter, wastewater, stagnant water and household waste.',a:['Set the project objectives and made an observation checklist','Reviewed sources: plastic litter, household wastewater, waste entering drains','Planned safe field observation and photo methods'],l:'Prevention begins with identifying sources and recording observations consistently. Looking at water shows visible waste, but only lab tests show if it is safe.',ph:[[2,'Floating waste and aquatic weeds, Thotapalligudur']],log:['Introduced the topic and purpose','Collected background on pollution sources','Prepared the checklist for field visits','Reviewed waste segregation and safe disposal','Discussed saving water and keeping oils, chemicals and plastics out of drains','Planned the observation route']},
+{t:'Drainage pathways and waste disposal',d:'21–27 Sep 2026',s:'We studied how litter and household waste travel from streets into drains and water channels, and how blocked drains and runoff make things worse.',a:['Reviewed the link between local drains and water bodies','Listed visible signs: litter, stagnant flow, discoloured water','Wrote awareness points on not dumping plastics in drains'],l:'Poor waste handling lets solid waste reach waterways, block flow and make public spaces less hygienic. Awareness and reliable collection both help.',ph:[[3,'A drainage outlet with accumulated waste, Thotapalligudur']],log:['Reviewed water sources and drainage paths','Observed roadside waste-disposal practices','Discussed floating waste and stagnant flow','Wrote awareness messages','Reviewed effects of blocked drains','Summarised observations']},
+{t:'Effects of wastewater and solid waste',d:'28 Sep – 4 Oct 2026',s:'We looked at what untreated wastewater and persistent plastics can do once they enter channels, without claiming any health outcome was measured.',a:['Reviewed how wastewater carries pollutants into open channels','Discussed why single-use plastics are hard to manage in waterways','Prepared guidance on separating recyclable waste'],l:'Managing waste before it reaches water works better than cleaning up afterwards. Reduce disposable plastic and use proper collection points.',ph:[[4,'Floating debris on the water, Thotapalligudur (16/10/2026)'],[5,'Channel with dark floating material and an overflow pipe']],log:['Studied untreated wastewater in open channels','Reviewed how plastics persist','Discussed stagnant polluted water','Prepared segregation guidance','Reviewed water-saving habits','Organised observations into themes']},
+{t:'Awareness and safe documentation',d:'5–11 Oct 2026',s:'We prepared respectful awareness messages and planned how to photograph the site safely from public areas, never entering water or drains.',a:['Drafted short messages on keeping waterways litter-free','Reviewed safe photo methods','Listed what to include when reporting dumping or drainage problems'],l:'Residents need accessible waste collection and timely maintenance. Reports work best when they are respectful, specific and based on what can be seen.',ph:[[6,'Wider view of the channel and vegetation'],[7,'Talking with a local resident near the channel']],log:['Planned the next site visit','Reviewed community participation','Prepared awareness messages','Discussed effects on aquatic life','Reviewed how to report concerns','Prepared the field checklist']},
+{t:'Field visit and photo documentation',d:'12–18 Oct 2026',s:'We visited the water channel at Thotapalligudur, Nellore district, and recorded surface waste, dark material on the water, aquatic weeds and a drainage outlet.',a:['Recorded visible waste and plants from a safe position','Photographed a drainage outlet and waste nearby','Took close-up and wide shots for context'],l:'Clear photos with factual captions support follow-up. Water-quality conclusions need testing, while visible waste can be reported for clean-up.',ph:[[8,'Team at the channel bank, Thotapalligudur'],[9,'Team observing the channel from the bank']],log:['Visited the channel, photographed waste and weeds','Observed a drainage outlet','Recorded floating debris','Discussed site conditions and messages','Took wide photographs','Wrote factual captions']},
+{t:'Recommendations and the Jalora website',d:'19–30 Oct 2026',s:'We brought the observations, messages and recommendations together, built this website and prepared the final report for submission.',a:['Grouped photos by site condition','Wrote recommendations on segregation, less plastic, saving water and reporting','Presented the Jalora website and organised the report documents'],l:'A clear website makes the project easy to find, but lasting improvement depends on household habits and follow-up by local services.',ph:[[1,'Mixed waste near the water edge, Guruthota (16/10/2026)'],[0,'Water-access area, Nellore (30/10/2026)']],log:['Reviewed and grouped field photographs','Wrote recommendations','Summarised the role of local bodies','Prepared water-saving messages','Completed the activity record','Reviewed the report for submission']}];
+const P=[[11,'Narukuru Gram Panchayat office','16 Oct 2026, 12:05 PM','Met the Panchayat representative, explained the project and received written permission.',14.446175,80.060942],
+[1,'Guruthota, Ranganayakulapet','16 Oct 2026, 12:02 PM','Recorded mixed waste and packaging close to the water edge.',14.467343,79.987652],
+[2,'Thotapalligudur water channel','16 Oct 2026, 1:01 PM','Photographed floating waste, aquatic weeds, a drainage outlet and an overflow pipe.',14.448685,80.061394],
+[0,'Water-access area, Nellore','30 Oct 2026, 11:42 AM','Documented the edge of a water-access area used by the community.',14.438492,79.963788],
+[12,'SVCE, North Rajupalem','31 Oct 2026, 2:05 PM','Reviewed the completed work and report with our faculty guide, Mr. T. Sunil Kumar.',14.5643,79.9887]];
+const $=s=>document.querySelector(s),mod=$('#mod'),dlg=$('#dlg');
+$('#wgrid').innerHTML=W.map((w,i)=>`<button class="wk" data-i="${i}"><small>WEEK ${i+1} · ${w.d}</small><h3>${w.t}</h3><p>${w.s.split('. ')[0]}.</p><em>Open week →</em><i></i></button>`).join('');
+$('#trip').innerHTML=P.map(p=>`<div class="stop"><img src="${I(String(p[0]).padStart(2,'0'))}" alt="${p[1]}" loading="lazy"><div><time>${p[2]}</time><h3>${p[1]}</h3><p>${p[3]}</p><a href="https://www.google.com/maps?q=${p[4]},${p[5]}" target="_blank" rel="noopener">View on map →</a></div></div>`).join('');
+function open(i){const w=W[i];mod.innerHTML=`<button class="x" aria-label="Close">×</button><small style="color:var(--sand);font-weight:700">WEEK ${i+1} · ${w.d}</small><h2>${w.t}</h2><p style="color:var(--foam)">${w.s}</p><h4>What we did</h4><ul>${w.a.map(x=>`<li>${x}</li>`).join('')}</ul><h4>What we learned</h4><p>${w.l}</p><div class="ph">${w.ph.map(p=>`<figure><img src="${I(String(p[0]).padStart(2,'0'))}" alt="${p[1]}"><figcaption>${p[1]}</figcaption></figure>`).join('')}</div><h4>Daily log</h4><table>${w.log.map((x,k)=>`<tr><td>Day ${k+1}</td><td>${x}</td></tr>`).join('')}</table><div class="nav2"><button class="btn o" ${i?'':'disabled style="opacity:.3"'} data-g="${i-1}">← Week ${i}</button><button class="btn o" ${i<5?'':'disabled style="opacity:.3"'} data-g="${i+1}">Week ${i+2} →</button></div>`;if(!dlg.open)dlg.showModal();mod.scrollTop=0}
+document.addEventListener('click',e=>{const t=e.target,w=t.closest('.wk'),g=t.closest('[data-g]');
+if(w)open(+w.dataset.i);else if(g&&!g.disabled)open(+g.dataset.g);
+else if(t.closest('.x')||t===dlg)dlg.close();
+else if(t.matches('.ph img,.stop img')){$('#lb img').src=t.src;$('#lb').classList.add('on')}
+else if(t.closest('#lb'))$('#lb').classList.remove('on')});
+/* sea: bubbles + fish */
+const c=$('#sea'),x=c.getContext('2d');let B=[],F=[],w,h;
+function rs(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight;B=Array.from({length:Math.min(60,w/20)},()=>({x:Math.random()*w,y:Math.random()*h,r:1+Math.random()*4,v:.2+Math.random()*.7}));F=[0,1,2,3].map(i=>({x:Math.random()*w,y:h*(.2+.6*Math.random()),s:(.4+Math.random()*.8)*(i%2?1:-1),c:['#ffb066','#e9fbf9','#ff8a5c','#f3d9a4'][i],z:.7+Math.random()*.7}))}
+function fr(){x.clearRect(0,0,w,h);B.forEach(b=>{b.y-=b.v;b.x+=Math.sin(b.y/30)*.3;if(b.y<-9){b.y=h+9;b.x=Math.random()*w}x.beginPath();x.arc(b.x,b.y,b.r,0,7);x.strokeStyle='rgba(255,255,255,.55)';x.stroke()});
+F.forEach(f=>{f.x+=f.s;f.y+=Math.sin(f.x/40)*.4;if(f.s>0&&f.x>w+60)f.x=-60;if(f.s<0&&f.x<-60)f.x=w+60;x.save();x.translate(f.x,f.y);x.scale(Math.sign(f.s)*f.z,f.z);x.fillStyle=f.c;x.beginPath();x.ellipse(0,0,22,10,0,0,7);x.fill();x.beginPath();x.moveTo(-18,0);x.lineTo(-34,-10);x.lineTo(-34,10);x.fill();x.fillStyle='#04263a';x.beginPath();x.arc(11,-2,2,0,7);x.fill();x.restore()});
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)requestAnimationFrame(fr)}
+rs();fr();addEventListener('resize',rs);
+/* reveal + counters */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-n]').forEach(n=>{let k=0,t=+n.dataset.n;const s=setInterval(()=>{n.textContent=++k;if(k>=t)clearInterval(s)},700/t)});io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+/* sort game */
+const IT=[['🍌','Banana peel','wet','Food scraps are wet waste and can be composted.'],['🍾','Plastic bottle','dry','Clean plastic goes in dry waste for recycling.'],['🔋','Used battery','haz','Batteries contain metals. Hand them to a collection point.'],['🥬','Vegetable scraps','wet','Wet waste. Compost it.'],['🍟','Chip packet','dry','Packaging is dry waste. Better still, buy less of it.'],['🎨','Paint tin','haz','Paint is a chemical. Never pour it in a drain.'],['📰','Newspaper','dry','Paper is dry and recyclable.'],['🛢️','Used cooking oil','haz','Oil must never go down a drain. Collect it separately.'],['🥤','Plastic cup','dry','Single-use plastic. Reuse or recycle it.'],['🍂','Garden leaves','wet','Leaves are wet waste that can become compost.']];
+let q=[],sc=0,tot=0,cur;
+function nx(){if(!q.length)q=[...IT].sort(()=>Math.random()-.5);cur=q.pop();$('#it').textContent=cur[0];$('#nm').textContent=cur[1]}
+function lv(){const p=tot?Math.round(sc/tot*100):0,e=$('#lvl');e.style.height=Math.max(8,p)+'%';e.style.background=p<40?'linear-gradient(#9a8b5a,#6b5b32)':'';$('#lt').textContent='Water health '+p+'% · '+sc+'/'+tot}
+document.querySelector('.bins').onclick=e=>{const b=e.target.dataset.b;if(!b)return;tot++;if(b===cur[2]){sc++;$('#fb').textContent='Correct. '+cur[3]}else{$('#fb').textContent='Not quite. '+cur[3];$('#it').classList.add('shake');setTimeout(()=>$('#it').classList.remove('shake'),400)}lv();nx()};
+nx();lv();
+/* quiz */
+const Q=[['Can a photograph alone show whether water is safe to drink?',['Yes, if it looks clear','No, laboratory testing is needed','Only at night'],1],['Which is a good first step to stop plastic reaching a water body?',['Burn it','Segregate waste and use proper collection','Push it into the drain'],1],['What can blocked drains with solid waste cause?',['Stagnant water and local flooding','Cleaner water','Nothing'],0],['Where should used cooking oil and chemicals go?',['Down the drain','Into the canal','Kept out of drains and disposed of safely'],2],['When reporting a dumping problem, what should you include?',['Exact location and what you can see','Guesses about who did it','Nothing, just complain'],0]];
+let qi=0,qs=0;
+function rq(){const z=$('#qz');if(qi>=Q.length){z.innerHTML=`<p style="font:400 54px Fraunces,serif">${qs}/${Q.length}</p><p>${qs>4?'Excellent. You are a water protector.':qs>2?'Good effort. Replay to improve.':'Read the report and try again.'}</p><button class="btn" style="margin-top:14px" id="rp">Play again</button>`;$('#rp').onclick=()=>{qi=qs=0;rq()};return}
+const k=Q[qi];z.innerHTML=`<p style="color:var(--sand);font-weight:700">Question ${qi+1} of ${Q.length}</p><p style="font-size:19px;margin-top:6px">${k[0]}</p><div class="opts">${k[1].map((o,j)=>`<button data-j="${j}">${o}</button>`).join('')}</div>`;
+z.querySelector('.opts').onclick=e=>{const j=e.target.dataset.j;if(j===undefined)return;const bs=z.querySelectorAll('button');bs.forEach(b=>b.disabled=true);bs[k[2]].classList.add('ok');if(+j===k[2])qs++;else bs[j].classList.add('no');setTimeout(()=>{qi++;rq()},1200)}}
+rq();
+
+/* extras */
+const pb=$('#pb'),tp=$('#top');
+addEventListener('scroll',()=>{const m=document.documentElement.scrollHeight-innerHeight;pb.style.width=(scrollY/m*100)+'%';tp.classList.toggle('on',scrollY>700)},{passive:true});
+tp.onclick=()=>scrollTo({top:0});
+/* language */
+const TR=[['nav a:nth-child(1)','నివేదిక'],['nav a:nth-child(2)','వారాలు'],['nav a:nth-child(3)','మేము వెళ్లిన చోట్లు'],['nav a:nth-child(4)','ఆటలు'],['nav a:nth-child(5)','చర్య తీసుకోండి'],['nav a:nth-child(6)','ప్రతిజ్ఞ'],
+['#hero h1','నీటిని కాపాడండి. జీవాన్ని కాపాడండి.'],['#hero p','నెల్లూరు జిల్లా నారుకూరులో నీటి కాలుష్యంపై ఆరు వారాల కమ్యూనిటీ సర్వీస్ ప్రాజెక్ట్: మేము ఏమి చూశాము, ఎక్కడికి వెళ్ళాము, ప్రతి ఇల్లు ఏమి చేయగలదు.'],
+['#hero .btn:nth-child(1)','ప్రాజెక్ట్ PDF చూడండి'],['#hero .btn:nth-child(2)','PDF డౌన్‌లోడ్'],['#hero .btn:nth-child(3)','6 వారాలు తెరవండి'],
+['#report h2','ప్రాజెక్ట్ నివేదిక'],['#report .lead','పూర్తి కమ్యూనిటీ సర్వీస్ ప్రాజెక్ట్ నివేదికను ఇక్కడ చదవండి లేదా డౌన్‌లోడ్ చేయండి.'],
+['#weeks h2','మా ఆరు వారాలు'],['#weeks .lead','ఒక వారాన్ని ఎంచుకుంటే మేము ఏమి చేశాము, ఏమి నేర్చుకున్నాము, ఫోటోలు చూడవచ్చు.'],
+['#places h2','మేము వెళ్లిన చోట్లు'],['#places .lead','మేము సందర్శించిన ప్రతి ప్రదేశం, ఫోటోపై ఉన్న GPS తేదీ, సమయంతో.'],
+['#games h2','ఆడండి, నేర్చుకోండి'],['#games .lead','నివేదిక ఆధారంగా ఆటలు. ప్రతి సరైన సమాధానం నీటిని శుభ్రం చేస్తుంది.'],
+['#act h2','ఈ రోజే మీరు చేయగలిగినవి'],['#pledge h2','మీ ప్రతిజ్ఞ చేయండి'],['#pledge .lead','మీరు చేసేవాటిని ఎంచుకోండి. మీ ఎంపికలు ఈ పరికరంలోనే ఉంటాయి.'],['#sh','Jalora ని షేర్ చేయండి']];
+let te=0;
+TR.forEach(r=>{const e=$(r[0]);e.dataset.en=e.textContent});
+$('#lg').onclick=()=>{te=!te;document.documentElement.lang=te?'te':'en';TR.forEach(r=>{const e=$(r[0]);e.textContent=te?r[1]:e.dataset.en});$('#lg').textContent=te?'English':'తెలుగు'};
+/* river clean-up */
+let cs=0,ct=30,ci,cm,run=0;const ar=$('#ar');
+function stop(){clearInterval(ci);clearInterval(cm);run=0;ar.innerHTML='<p style="padding:90px 10px;text-align:center;font-weight:700">Time up! You collected '+cs+' points.</p>';$('#cb').textContent='Play again'}
+$('#cb').onclick=()=>{if(run)return;run=1;cs=0;ct=30;ar.innerHTML='';$('#cs').textContent='Score 0';$('#ct').textContent='30s';$('#cb').textContent='Playing…';
+cm=setInterval(()=>{const f=Math.random()<.25,e=document.createElement('span');e.textContent=f?'🐟':['🥤','🛍️','🍾','🥫'][Math.random()*4|0];e.dataset.f=f?1:0;e.style.left=Math.random()*(ar.offsetWidth-40)+'px';e.style.top='-40px';e.dataset.v=1.5+Math.random()*2;ar.appendChild(e)},600);
+ci=setInterval(()=>{ar.querySelectorAll('span').forEach(e=>{const t=parseFloat(e.style.top)+ +e.dataset.v;if(t>ar.offsetHeight)e.remove();else e.style.top=t+'px'});},30);
+const tm=setInterval(()=>{$('#ct').textContent=--ct+'s';if(ct<=0){clearInterval(tm);stop()}},1000)};
+ar.onclick=e=>{const t=e.target;if(t.tagName!=='SPAN')return;cs=t.dataset.f==='1'?Math.max(0,cs-2):cs+1;$('#cs').textContent='Score '+cs;t.remove()};
+/* memory */
+let mo=[],mf=[],mn=0,mdone=0;
+function mem(){const E=['💧','🐟','🌿','♻️','🛍️','🐢'];mo=[...E,...E].sort(()=>Math.random()-.5);mf=[];mn=0;mdone=0;$('#mv').textContent='Moves 0';$('#mb').textContent='';
+$('#mm').innerHTML=mo.map((e,i)=>`<button data-i="${i}" aria-label="card">${e}</button>`).join('')}
+$('#mm').onclick=e=>{const b=e.target.closest('button');if(!b||mf.length>1||b.classList.contains('f')||b.classList.contains('m'))return;b.classList.add('f');mf.push(b);
+if(mf.length==2){$('#mv').textContent='Moves '+ ++mn;const[a,c]=mf;if(mo[a.dataset.i]===mo[c.dataset.i]){a.classList.replace('f','m');c.classList.replace('f','m');mf=[];if(++mdone==6)$('#mb').textContent='Done in '+mn+' moves!'}else setTimeout(()=>{a.classList.remove('f');c.classList.remove('f');mf=[]},800)}};
+$('#mr').onclick=mem;mem();
+/* pledge */
+const PL=['I will separate wet, dry and recyclable waste','I will never pour oil or chemicals into a drain','I will carry a cloth bag and a reusable bottle','I will report dumping with the exact location','I will tell three people about clean water'];
+let ps=[];try{ps=JSON.parse(localStorage.getItem('jalora-pledge')||'[]')}catch(e){}
+$('#pl').innerHTML=PL.map((p,i)=>`<label><input type="checkbox" data-i="${i}" ${ps.includes(i)?'checked':''}>${p}</label>`).join('');
+function up(){const n=ps.length;$('#pbar').style.width=n/5*100+'%';$('#pm').textContent=n==5?'Thank you, water protector! You made every pledge.':n+' of 5 pledges made'}
+$('#pl').onchange=e=>{const i=+e.target.dataset.i;ps=e.target.checked?[...ps,i]:ps.filter(x=>x!==i);try{localStorage.setItem('jalora-pledge',JSON.stringify(ps))}catch(x){}up()};up();
+$('#sh').onclick=()=>{const d={title:'Jalora',text:'Protect water. Preserve life.',url:location.href};navigator.share?navigator.share(d).catch(()=>{}):navigator.clipboard&&navigator.clipboard.writeText(location.href).then(()=>{$('#sh').textContent='Link copied'})};
+</script>
+</body>
+</html>
