@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Our Team | Jalora</title>
+<meta name="description" content="Meet the four-member CSP team behind Jalora, a water-pollution awareness project."><link rel="stylesheet" href="/style.css">
+<style>.av{width:96px;height:96px;border-radius:50%;object-fit:cover;display:grid;place-items:center;font-size:2rem;font-weight:700;border:3px solid var(--c);margin-bottom:10px;background:#0b3243}
+.m{cursor:pointer;text-align:left;color:inherit;font:inherit;border-color:var(--c)}.m:hover,.m:focus-visible{box-shadow:0 0 24px -6px var(--c);transform:translateY(-4px)}.m{transition:.25s}
+dialog{background:#0b3243;color:var(--ink);border:1px solid var(--line);border-radius:20px;max-width:420px;width:92%}dialog::backdrop{background:#000a}</style></head><body>
+<header><a href="/">← Jalora home</a><span><a href="/report.html">Report pollution</a></span></header>
+<main><h1>Our Team</h1><p style="color:var(--mut)">Four students, one goal: protect water, preserve life.</p><div id="g" class="grid" aria-live="polite">Loading…</div></main>
+<dialog id="d"><div id="dc"></div><p><button class="btn ghost" onclick="d.close()">Close</button></p></dialog>
+<script>
+const g=document.getElementById('g'),d=document.getElementById('d'),dc=document.getElementById('dc'),C=['#38bdf8','#34d399','#fbbf24','#f472b6'];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ini=n=>n.split(' ').map(w=>w[0]).join('').slice(0,2);
+const av=m=>m.photo?`<img class="av" src="${esc(m.photo)}" alt="${esc(m.name)}" loading="lazy">`:`<div class="av" aria-hidden="true">${esc(ini(m.name))}</div>`;
+const rep=m=>m.pdf?`<a class="btn" href="${esc(m.pdf)}" target="_blank" rel="noopener">View PDF</a> <a class="btn ghost" href="${esc(m.pdf)}" download="${esc(m.pdf_name||'report.pdf')}">Download PDF</a>`:'<em style="color:var(--mut)">No report uploaded yet</em>';
+fetch('/api/team').then(r=>r.json()).then(L=>{g.innerHTML='';L.forEach((m,i)=>{const b=document.createElement('button');b.className='card m rise';b.style.cssText=`--c:${C[i%4]};animation-delay:${i*90}ms`;
+b.innerHTML=`${av(m)}<h2 style="margin:.2em 0">${esc(m.name)}</h2><div>${esc(m.roll_no)}</div><div style="color:var(--mut)">${esc(m.label)} · View Profile</div>`;
+b.onclick=()=>{dc.innerHTML=`${av(m)}<h2>${esc(m.name)}</h2><p>${esc(m.roll_no)} · ${esc(m.label)}</p><p>${rep(m)}</p>`;d.showModal()};g.appendChild(b)})}).catch(()=>g.textContent='Could not load the team. Please refresh.');
+</script></body></html>

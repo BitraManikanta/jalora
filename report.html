@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Report Water Pollution | Jalora</title>
+<meta name="description" content="Report visible water pollution in your locality in India."><meta name="robots" content="noindex"><link rel="stylesheet" href="/style.css">
+<style>.steps{display:flex;gap:6px;margin:12px 0}.steps i{flex:1;height:6px;border-radius:3px;background:var(--line)}.steps i.on{background:var(--a)}.s{display:none}.s.on{display:block;animation:rise .4s both}.row{display:flex;gap:10px;margin-top:16px}.hp{position:absolute;left:-9999px}</style></head><body>
+<header><a href="/">← Jalora home</a><a href="/team.html">Our Team</a></header>
+<main><h1>Report water pollution</h1>
+<div class="msg">Describe only what you actually saw. Photos and suspicion alone cannot show that water is unsafe, so please don't claim it is. Jalora is a student project, not a government body. Your report is emailed to a listed authority only if one with a verified official email exists for your area.</div>
+<div class="card"><div class="steps" id="st"><i></i><i></i><i></i><i></i></div><div id="f" aria-live="polite">
+<div class="s"><h2>1. What did you see?</h2><label for="cat">Category</label><select id="cat"></select></div>
+<div class="s"><h2>2. Where?</h2><label for="state">State / UT</label><select id="state"></select><label for="dist">District</label><input id="dist" list="dl" autocomplete="off"><datalist id="dl"></datalist>
+<label for="loc">Locality / village / town / ward</label><input id="loc" autocomplete="off"><label for="lm">Street or landmark (optional)</label><input id="lm"><label for="pin">PIN code (optional)</label><input id="pin" inputmode="numeric" maxlength="6"></div>
+<div class="s"><h2>3. Details</h2><label for="desc">What did you see, where, and roughly when?</label><textarea id="desc" rows="6" maxlength="2000" placeholder="Example: Plastic bags and food waste floating near the culvert beside the market, noticed this morning."></textarea>
+<label for="obs">Date/time observed (optional)</label><input id="obs" type="datetime-local"></div>
+<div class="s"><h2>4. You and consent</h2><label for="nm">Name (optional)</label><input id="nm"><label for="em">Email (for your reference and updates)</label><input id="em" type="email">
+<div id="auth" class="msg"></div><label><input type="checkbox" id="c1" style="width:auto"> I consent to my report (and my email if given) being shared with the selected authority. <b>Required.</b></label>
+<label><input type="checkbox" id="c2" style="width:auto"> Email me updates about this report (optional).</label>
+<p style="color:var(--mut);font-size:.9rem">Privacy: your name and email are never shown publicly. They are visible only to Jalora administrators and, if you consent, the authority. Reports are kept only as long as needed and can be deleted on request.</p>
+<input class="hp" id="web" tabindex="-1" autocomplete="off" aria-hidden="true"></div>
+<div id="e"></div><div class="row"><button class="btn ghost" id="bk">Back</button><button class="btn" id="nx">Next</button></div></div><div id="done"></div></div></main>
+<script>
+const $=i=>document.getElementById(i),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let step=0,D={},auth=[];const S=[...document.querySelectorAll('.s')];
+fetch('/api/config').then(r=>r.json()).then(c=>{$('cat').innerHTML=c.categories.map(x=>`<option>${esc(x)}</option>`).join('');$('state').innerHTML='<option value="">Select…</option>'+c.states.map(x=>`<option>${esc(x)}</option>`).join('')});
+fetch('/data/districts.json').then(r=>r.json()).then(j=>D=j).catch(()=>{});
+$('state').onchange=()=>{$('dist').value='';$('loc').value='';$('dl').innerHTML=(D[$('state').value]||[]).map(x=>`<option value="${esc(x)}">`).join('')};
+$('dist').onchange=()=>{$('loc').value=''};
+function show(){S.forEach((s,i)=>s.classList.toggle('on',i===step));document.querySelectorAll('#st i').forEach((x,i)=>x.classList.toggle('on',i<=step));$('bk').style.visibility=step?'visible':'hidden';$('nx').textContent=step==3?'Submit report':'Next'}
+function check(){const e=[];if(step==1){if(!$('state').value)e.push('Select a State/UT.');if(!$('dist').value.trim())e.push('Enter your district.');if(!$('loc').value.trim())e.push('Enter your locality, village, town or ward.');if($('pin').value&&!/^[1-9][0-9]{5}$/.test($('pin').value))e.push('PIN must be 6 digits.')}
+if(step==2&&$('desc').value.trim().length<30)e.push('Please write at least 30 characters.');if(step==3&&!$('c1').checked)e.push('Consent to share is required.');$('e').innerHTML=e.map(x=>`<div class="msg err" role="alert">${esc(x)}</div>`).join('');return !e.length}
+async function loadAuth(){const q=new URLSearchParams({state:$('state').value,district:$('dist').value.trim(),category:$('cat').value});auth=await (await fetch('/api/complaint?'+q)).json();const m=auth.filter(a=>a.hasEmail);
+$('auth').innerHTML=m.length?`Proposed receiving authority:<select id="au">${m.map(a=>`<option value="${esc(a.id)}">${esc(a.name)}</option>`).join('')}</select>`:'No verified official email is configured for your area yet, so your report will be saved but not emailed to an authority.'+(auth.find(a=>a.portal_url)?` Official portal: <a href="${esc(auth.find(a=>a.portal_url).portal_url)}" rel="noopener">open</a>`:'')}
+$('bk').onclick=()=>{step--;show()};
+$('nx').onclick=async()=>{if(!check())return;if(step<3){step++;if(step==3)await loadAuth();show();return}
+$('nx').disabled=true;$('nx').textContent='Submitting…';
+const r=await fetch('/api/complaint',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({category:$('cat').value,state:$('state').value,district:$('dist').value,locality:$('loc').value,landmark:$('lm').value,pin:$('pin').value,description:$('desc').value,observedAt:$('obs').value,name:$('nm').value,email:$('em').value,consentShare:$('c1').checked,consentUpdates:$('c2').checked,authorityId:$('au')?.value,website:$('web').value})});
+const j=await r.json();$('nx').disabled=false;if(!r.ok){$('e').innerHTML=(j.errors||[j.error]).map(x=>`<div class="msg err" role="alert">${esc(x)}</div>`).join('');$('nx').textContent='Submit report';return}
+const T={accepted:'Your report was saved and the email was accepted by our mail provider. This does not confirm an officer has read it.',failed:'Your report is saved, but the email could not be sent yet. Jalora admins can retry.',no_route:'Your report is saved. No verified authority email exists for your area, so nothing was emailed.'};
+$('f').style.display='none';$('done').innerHTML=`<h2>Report saved</h2><p>Reference: <b>${esc(j.reference)}</b></p><div class="msg ok">${esc(T[j.emailStatus]||'Saved.')}</div>`+(j.token?`<p>Private tracking link (keep it safe): <a href="/track.html?t=${esc(j.token)}">open</a></p>`:'')+(j.portal?`<p><a href="${esc(j.portal)}" rel="noopener">Official portal</a></p>`:'')};
+show();
+</script></body></html>

@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Track report | Jalora</title><meta name="robots" content="noindex"><link rel="stylesheet" href="/style.css"></head><body>
+<header><a href="/">← Jalora home</a></header><main><h1>Report status</h1><div class="card" id="o">Loading…</div></main>
+<script>const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+fetch('/api/complaint?token='+encodeURIComponent(new URLSearchParams(location.search).get('t')||'')).then(r=>r.ok?r.json():Promise.reject()).then(c=>{
+o.innerHTML=`<p><b>${esc(c.reference)}</b> · ${esc(c.category)} · ${esc(c.locality)}, ${esc(c.district)}</p><p>Status: <b>${esc(c.status.replace(/_/g,' '))}</b></p><ol>${c.history.map(h=>`<li>${new Date(h.at).toLocaleString()} – ${esc(h.status.replace(/_/g,' '))}${h.public_note?': '+esc(h.public_note):''}</li>`).join('')}</ol>`}).catch(()=>o.textContent='Report not found.')</script></body></html>
