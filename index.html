@@ -251,5 +251,6 @@ function up(){const n=ps.length;$('#pbar').style.width=n/5*100+'%';$('#pm').text
 $('#pl').onchange=e=>{const i=+e.target.dataset.i;ps=e.target.checked?[...ps,i]:ps.filter(x=>x!==i);try{localStorage.setItem('jalora-pledge',JSON.stringify(ps))}catch(x){}up()};up();
 $('#sh').onclick=()=>{const d={title:'Jalora',text:'Protect water. Preserve life.',url:location.href};navigator.share?navigator.share(d).catch(()=>{}):navigator.clipboard&&navigator.clipboard.writeText(location.href).then(()=>{$('#sh').textContent='Link copied'})};
 </script>
+<script src="/jalora-nav.js"></script>
 </body>
 </html>
